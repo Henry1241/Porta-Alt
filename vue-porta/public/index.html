@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block html %}
+<html>
+<head>
+  {% block head %}{{ block.super}}{% endblock %}
+</head>
+<body>
+{% block body %}
+  {{ block.super}}
+  <noscript>
+    <strong>
+      Weererasfdhjkaslfajsflk
+    </strong>
+  </noscript>  
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+{% endblock body %}
+</body>
+</html>
+{% endblock html %}
