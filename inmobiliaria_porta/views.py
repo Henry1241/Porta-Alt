@@ -23,3 +23,7 @@ class ProprietyCreateView(TemplateView):
 
 class ContructionView(TemplateView):
     template_name = "conotruction.html"
+
+class ProprietyInfoView(TemplateView):
+    template_name = "PropietyInfoView.html"
+    

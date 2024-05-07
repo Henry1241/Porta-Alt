@@ -7,6 +7,8 @@ import ResetView from './views/ResetView.vue'
 import ProprietyView from './views/ProprietyView'
 import ProprietyCreateFormView from './views/Propriety/ProprietyCreateFormView'
 import ContructionPageView from './views/ContructionPageView'
+import ProprietyInfoView from './views/ProprietyInfoView.vue'
+
 
 const routes = [
   {
@@ -37,6 +39,13 @@ const routes = [
     path: '/contruction',
     component: ContructionPageView
   },
+  {
+    path: '/propriety/:id', // Usamos :id para indicar que este segmento de la URL es dinámico y puede ser cualquier ID de propiedad
+    component: ProprietyInfoView, // Componente asociado a esta ruta
+    props: true // Esto permite pasar props a la vista
+  },
+  
+  
 ];
 
 const router = createRouter({
