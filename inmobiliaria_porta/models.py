@@ -5,7 +5,7 @@ class empleados(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.TextField()
 
-class viviendas(models.Model):
+class vivienda(models.Model):
     id = models.AutoField(primary_key=True)
     fechaInicio = models.TextField()
     fechaTermino = models.TextField()
@@ -95,3 +95,6 @@ class viviendas(models.Model):
     otros = models.TextField()
     total = models.TextField()
     imagen = models.TextField()
+
+    def __str__(self):
+        return self.titulo

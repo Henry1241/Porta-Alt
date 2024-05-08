@@ -1,6 +1,82 @@
-{% extends "baseVue.html" %}
+{% extends 'baseDjango.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+    <title>Inicio | Porta</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/propriedades/proprietyView.css' %}">
+  {% endblock %}
+</head>
+<body>
+{% block content %}
+  <div class="content">
+    <select name="Propiedades" id="propiedades">
+      <option value="Todas">All</option>
+      <option value="Terrenos">Terrenos</option>
+      <option value="Comerciales">Comerciales</option>
+      <option value="Viviendas">Viviendas</option>
+    </select>
 
-{% block title %}Propriety {% endblock %}
-{% block main %}
+    <p><button @click="createPropriety" class="button-create">Create</button></p>
+  </div>
+
+  <!-- Aquí se muestran las cards de las propiedades -->
+  {% for vivienda in viviendas %}
+  <div class="property-cards">
     
+    <!-- Card 1: Cozy Apartment -->
+    <div class="card">
+      <div class="property-info">
+        
+        <h3>Cozy Apartment</h3>
+        <p>Precio: {{ vivienda.precioVenta }}</p>
+        <p>Habitaciones: 2</p>
+        <p>Baños: 1</p>
+        
+      </div>
+      <div class="property-image">
+        <img src="https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg" alt="Cozy Apartment">
+      </div>
+      <div class="property-button">
+        <button @click="viewProperty(1)" class="view-property-button">Ver propiedad</button>
+      </div>
+    </div>
+    
+    <!-- Card 2: Spacious House -->
+    <div class="card">
+      <div class="property-info">
+        <h3>Spacious House</h3>
+        <p>Price: $300,000</p>
+        <p>Bedrooms: 4</p>
+        <p>Bathrooms: 3</p>
+      </div>
+      <div class="property-image">
+        <img src="https://i.ytimg.com/vi/x7UflKOhhe4/maxresdefault.jpg" alt="Spacious House">
+      </div>
+      <div class="property-button">
+        <button @click="viewProperty(2)" class="view-property-button">Ver propiedad</button>
+      </div>
+    </div>
+    
+    <!-- Card 3: Luxury Villa -->
+    <div class="card">
+      <div class="property-info">
+        <h3>Luxury Villa</h3>
+        <p>Price: $750,000</p>
+        <p>Bedrooms: 6</p>
+        <p>Bathrooms: 4</p>
+      </div>
+      <div class="property-image">
+        <img src="https://images.adsttc.com/media/images/5d34/e507/284d/d109/5600/0240/newsletter/_FI.jpg?1563747560" alt="Luxury Villa">
+      </div>
+      <div class="property-button">
+        <button @click="viewProperty(3)" class="view-property-button">Ver propiedad</button>
+      </div>
+    </div>
+    
+  </div>
+  {% endfor %}
 {% endblock %}
+</body>
+</html>

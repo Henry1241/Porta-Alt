@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 # Create your views here.
 
+from inmobiliaria_porta.models import *
+
 
 class LoginView(TemplateView):
     template_name = "login.html"
@@ -27,3 +29,11 @@ class ContructionView(TemplateView):
 class ProprietyInfoView(TemplateView):
     template_name = "PropietyInfoView.html"
     
+
+def edit(request, id):
+    vivienda = vivienda.objects.get(pk=id)
+    return render(request, "edit.html", {"vivienda": vivienda})
+
+def viviendas(request):
+    viviendas = vivienda.objects.all()
+    return render(request, 'propriety.html', {'viviendas': viviendas})

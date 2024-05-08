@@ -1,5 +1,5 @@
 from django.urls import path
-from inmobiliaria_porta.views import LoginView, ResetView, RegisterView, HomeView, ProprietyView, ProprietyCreateView, ContructionView, ProprietyInfoView
+from inmobiliaria_porta.views import *
 
 app_name = 'inmobiliaria_porta'
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     path('propriety/', ProprietyView.as_view(), name='propriety'),
     path('propriety/create', ProprietyCreateView.as_view(), name= 'proprietyCreate'),
     path('contruction/', ContructionView.as_view(), name= 'contruction'),
-    path('propriety/:id/', ProprietyInfoView.as_view(), name='proprietyInfo')
+    path('propriety/:id/', ProprietyInfoView.as_view(), name='proprietyInfo'),
+    path("edit/<int:id>", edit, name="edit")
     
 ]
