@@ -1,6 +1,302 @@
-{% extends "base.html" %}
+{% extends 'baseDjango.html' %}
+{% load static %}
 
-{% block title %}create{% endblock %}
-{% block main %}
-    
+{% block head %}
+<title>Crear | Porta</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/propriedades/proprietyCreate.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <form method="post">
+    {% csrf_token %}
+    <section>
+      <h3>Fechas</h3>
+      <label for='id_fechaInicio'>Fecha Inicio: </label>
+      {{ form.fechaInicio }}
+
+      <label for="fechaFin">Fecha Fín:</label>
+      {{ form.fechaTermino}}
+    </section>
+
+    <!-- ######### seccion de informacion de la propiedad ######## -->
+    <section>
+      <h3>Información de la propiedad:</h3>
+      <label for="titulo">Título:</label>
+      {{ form.titulo }}
+
+      <label for="comentario">Comentario:</label>
+      {{ form.cometario }}
+
+      <label for="tipoVivienda">Tipo de vivienda:</label>
+      {{ form.tipoVivienda }}
+
+      <label for="usoActual">Uso Actual:</label>
+      {{ form.usoActual }}
+
+      <label for="usoPermitido">Uso Permitido:</label>
+      {{ form.usoPermitido }}
+
+      <label for="condicionFisica">Condición Física:</label>
+      {{ form.condicionFisica }}
+
+      <label for="claseInmueble">Clase de Inmueble:</label>
+      {{ form.claseInmueble }}
+
+      <label for="numeroFrentes">Número de Frentes:</label>
+      {{ form.numeroFrentes }}
+
+      <label for="medidaTerreno">Medida del Terreno:</label>
+      {{ form.medidaTerreno }}
+
+      <label for="m2Terreno">M2 del Terreno:</label>
+      {{ form.m2Terreno }}
+
+      <label for="construccionN1">Construccion N1:</label>
+      {{ form.construccionN1 }}
+
+      <label for="construccionN2">Construccion N2:</label>
+      {{ form.construccionN2 }}
+
+      <label for="construccionN3">Construccion N3:</label>
+      {{ form.construccionN3 }}
+
+      <label for="gravamen">Gravamen:</label>
+      {{ form.gravamen }}
+      <!-- ######### En duda ######## -->
+      <label for="valorGravamen">Valor de Gravamen:</label>
+      {{ form.valorGravamen }}
+
+      <label for="valorAvaluo">Valor segun Avaúo:</label>
+      {{ form.valorAvaluo }}
+
+      <label for="operacion">Operación:</label>
+      {{ form.operacion }}
+
+      <label for="condicionPago">Condición de Pago:</label>
+      {{ form.condicionPago }}
+
+      <label for="escrituracion">Escrituración:</label>
+      {{ form.escrituracion }}
+
+      <label for="avaluo">Avalúo:</label>
+      {{ form.avaluo }}
+
+      <label for="impuestos">Impuestos:</label>
+      {{ form.impuestos }}
+
+      <label for="otros">Otros:</label>
+      {{ form.otros }}
+
+      <label for="total">Total:</label>
+      {{ form.total }}
+    </section>
+
+    <!-- ######### seccion de precios y comisiones ######## -->
+    <section>
+      <h3>Precios y comisiones</h3>
+      <label for="precioVenta">Precio de Venta:</label>
+      {{ form.precioVenta }}
+
+      <label for="precioRenta">Precio de Renta:</label>
+      {{ form.precioRenta }}
+
+      <label for="precioMinimo">Precio Minimo:</label>
+      {{ form.precioMinimo }}
+
+      <label for="precioPromedio">Precio Promedio:</label>
+      {{ form.precioPromedio }}
+
+      <label for="precioMaximo">Precio Maximo:</label>
+      {{ form.precioMaximo }}
+
+      <label for="comision1">Comision1:</label>
+      {{ form.comision1 }}
+
+      <label for="ganancia1">Ganancia1:</label>
+      {{ form.ganancia1 }}
+
+      <label for="comision2">Comision2:</label>
+      {{ form.comision2 }}
+
+      <label for="ganancia2">Ganancia2:</label>
+      {{ form.ganancia2 }}
+    </section>
+
+    <!-- ######### seccion de la disponibilidad y exclusividad ######## -->
+    <section>
+      <h3>Disponibilidad y exclusividad</h3>
+      {{ form.tipoDisponibilidad }}
+    </section>
+    <!-- ######### seccion de la transaccion de la propiedad ######## -->
+    <section>
+      <h3>Información de la transacción de la propiedad</h3>
+      <label for="empresa">Empresa:</label>
+      {{ form.empresa }}
+
+      <label for="agente">Agente:</label>
+      {{ form.agente }}
+
+      <label for="propietario">Propietario:</label>
+      {{ form.propietario }}
+
+      <label for="claveCastratal">Clave Catastral:</label>
+      {{ form.claveCastratal }}
+
+      <label for="lote">Lote:</label>
+      {{ form.lote }}
+
+      <label for="manzana">Manzana:</label>
+      {{ form.manzana }}
+
+      <label for="cuentaAgua">Cuenta de Agua:</label>
+      {{ form.cuentaAgua }}
+
+      <label for="ocultarDir">Ocultar Dirección:</label>
+      {{ form.ocultarDir }}
+
+      <label for="aceptaInfonavid">Acepta Infonavit:</label>
+      {{ form.aceptaInfonavid }}
+
+      <label for="aceptaFovisste">Acepta Fovisste:</label>
+      {{ form.aceptaFovisste }}
+
+      <label for="autosEst">Autos Estacionados:</label>
+      {{ form.autosEst }}
+
+      <label for="autosIndep">Autos Independientes:</label>
+      {{ form.autosIndep }}
+
+      <label for="estacionamiento">Estacionamiento:</label>
+      {{ form.estacionamiento }}
+
+      <label for="cocheraElectrica">Cochera Eléctrica:</label>
+      {{ form.cocheraElectrica }}
+
+      <label for="patio">Patio:</label>
+      {{ form.patio }}
+
+      <label for="asador">Asador:</label>
+      {{ form.asador }}
+
+      <label for="fuentes">Fuentes:</label>
+      {{ form.fuentes }}
+
+      <label for="jacuzzi">Jacuzzi:</label>
+      {{ form.jacuzzi }}
+
+      <label for="alberca">Alberca:</label>
+      {{ form.fuentes }}
+
+      <label for="jardin">Jardín:</label>
+      {{ form.jardin }}
+
+      <label for="bodega">Bodega:</label>
+      {{ form.bodega }}
+
+      <label for="cisterna">Cisterna:</label>
+      {{ form.cisterna }}
+
+      <label for="tinaco">Tinaco:</label>
+      {{ form.tinaco }}
+
+      <label for="acCentral">Aire Central:</label>
+      {{ form.acCentral }}
+
+      <label for="proteccionVentana">Protección de Ventana:</label>
+      {{ form.proteccionVentana }}
+
+      <label for="persianaCortina">Persiana Cortina:</label>
+      {{ form.persianaCortina }}
+
+      <label for="hidroneumatico">Hidroneumático:</label>
+      {{ form.hidroneumatico }}
+
+      <label for="patioEncementado">Patio Encementado:</label>
+      {{ form.patioEncementado }}
+
+      <label for="cocinaIntegral">Cocina integral:</label>
+      {{ form.cocinaIntegral }}
+
+      <label for="amueblado">Amueblado:</label>
+      {{ form.amueblado }}
+
+      <label for="piso1">Piso 1:</label>
+      {{ form.piso1}}
+
+      <label for="piso2">Piso 2:</label>
+      {{ form.piso2}}
+
+      <label for="piso3">Piso 3:</label>
+      {{ form.piso3}}
+
+      <label for="alarma">Alarma:</label>
+      {{ form.alarma}}
+
+      <label for="uriGoogleMap">URL Google Maps:</label>
+      {{ form.uriGoogleMaps}}
+
+      <label for="vitropiso">Tipo de Vitropiso:</label>
+      {{ form.vitropiso}}
+
+      <label for="closet">Closet:</label>
+      {{ form.closet}}
+
+      <label for="barda">Barda:</label>
+      {{ form.barda}}
+
+      <label for="equipada">Equipada:</label>
+      {{ form.equipada}}
+    </section>
+
+    <!-- ######### seccion de la ubicacion ######## -->
+    <section>
+      <h3>Ubicación</h3>
+      <label for="pais">País:</label>
+      {{ form.pais}}
+
+      <label for="estado">Estado:</label>
+      {{ form.estado}}
+
+      <label for="municipio">Municipio:</label>
+      {{ form.municipio}}
+
+      <label for="ciudad">Ciudad:</label>
+      {{ form.ciudad}}
+
+      <label for="colonia">Colonia:</label>
+      {{ form.colonia}}
+
+      <label for="codigoPostal">Código Postal:</label>
+      {{ form.codigoPostal}}
+
+      <label for="calle">Calle:</label>
+      {{ form.calle}}
+
+      <label for="numExterior">Número Exterior:</label>
+      {{ form.numExterior}}
+
+      <label for="numInterior">Número Interior:</label>
+      {{ form.numInterior}}
+
+      <label for="entreCalle1">Entre calle 1:</label>
+      {{ form.entreCalle1}}
+
+      <label for="entreCalle2">Entre calle 2:</label>
+      {{ form.entreCalle2}}
+
+      <label for="nombreComplejo">Nombre Complejo:</label>
+      {{ form.nombreComplejo}}
+    </section>
+
+    <!-- ######### seccion de la imagen ######## -->
+    <section>
+      <label for="imagen">Ingrese las imagenes de la vivienda:</label>
+      {{ form.imagen}}
+    </section>
+    <button type="submit" class="button-primary">Guardar</button>
+    <button class="button-primary" type='button' onclick='window.history.back()'>Cancelar</button>
+  </form>
+</div>
 {% endblock %}

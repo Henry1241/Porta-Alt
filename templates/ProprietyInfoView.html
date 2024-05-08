@@ -1,6 +1,121 @@
-{% extends "base.html" %}
-
-{% block title %}Property View{% endblock %}
-{% block main %}
-    
+{% extends "baseDjango.html" %}
+{% load static %}
+{% block head %}
+    <title>Detalles propiedad | Porta</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/propriedades/proprietyInfo.css' %}">
+{% endblock %}
+{% block content %}
+<div class="property-info-view">
+    <h2>Información de la Propiedad</h2>
+    <div v-if="property">
+      <div class="property-images">
+    <img src="{{ vivienda.imagen }}" alt="Property Image">
+  </div>
+   <div class="buttons">
+      <button class="btn-editar" onclick="redirectTo('/editar/{{ vivienda.id }}')">Editar</button>
+      <button class="btn-eliminar" onclick="redirectTo('/eliminarVivienda/{{ vivienda.id }}')">Eliminar</button>
+  </div>
+  <h3>{{ vivienda.titulo }}</h3>
+  <p>Precio: ${{ vivienda.precioVenta }}</p>
+  <!-- Mostrar las imágenes de la propiedad -->
+  <!-- Otros detalles de la propiedad -->
+  <h4>Fechas</h4>
+  <p>Fecha Inicio: {{ vivienda.fechaInicio }}</p>
+  <p>Fecha Fin: {{ vivienda.fechaTermino }}</p>
+  <!-- Sección de información de la propiedad -->
+  <h4>Información de la Propiedad</h4>
+  <p>Título: {{ vivienda.titulo }}</p>
+  <p>Comentario: {{ vivienda.cometario }}</p>
+  <p>Tipo de vivienda: {{ vivienda.tipoVivienda }}</p>
+  <p>Uso Actual: {{ vivienda.usoActual }}</p>
+  <p>Uso Permitido: {{ vivienda.usoPermitido }}</p>
+  <p>Condición Física: {{ vivienda.condicionFisica }}</p>
+  <p>Clase de Inmueble: {{ vivienda.claseInmueble }}</p>
+  <p>Número de Frentes: {{ vivienda.numeroFrentes }}</p>
+  <p>Medida del Terreno: {{ vivienda.medidaTerreno }}</p>
+  <p>M2 del Terreno: {{ vivienda.m2Terreno }}</p>
+  <p>Construcción N1: {{ vivienda.construccionN1 }}</p>
+  <p>Construcción N2: {{ vivienda.construccionN2 }}</p>
+  <p>Construcción N3: {{ vivienda.construccionN3 }}</p>
+  <p>Gravamen: {{ vivienda.gravamen }}</p>
+  <p>Valor de Gravamen: {{ vivienda.valorGravamen }}</p>
+  <p>Valor según Avalúo: {{ vivienda.valorAvaluo }}</p>
+  <p>Operación: {{ vivienda.operacion }}</p>
+  <p>Condición de Pago: {{ vivienda.condicionPago }}</p>
+  <p>Escrituración: {{ vivienda.escrituracion }}</p>
+  <p>Avalúo: {{ vivienda.avaluo }}</p>
+  <p>Impuestos: {{ vivienda.impuestos }}</p>
+  <p>Otros: {{ vivienda.otros }}</p>
+  <p>Total: {{ vivienda.total }}</p>
+  <!-- Sección de precios y comisiones -->
+  <h4>Precios y comisiones</h4>
+  <p>Precio de Venta: {{ vivienda.precioVenta }}</p>
+  <p>Precio de Renta: {{ vivienda.precioRenta }}</p>
+  <p>Precio Mínimo: {{ vivienda.precioMinimo }}</p>
+  <p>Precio Promedio: {{ vivienda.precioPromedio }}</p>
+  <p>Precio Máximo: {{ vivienda.precioMaximo }}</p>
+  <p>Comisión1: {{ vivienda.comision1 }}</p>
+  <p>Ganancia1: {{ vivienda.ganancia1 }}</p>
+  <p>Comisión2: {{ vivienda.comision2 }}</p>
+  <p>Ganancia2: {{ vivienda.ganancia2 }}</p>
+  <!-- Sección de disponibilidad y exclusividad -->
+  <h4>Disponibilidad y exclusividad</h4>
+  <p>Tipo de Disponibilidad: {{ vivienda.tipoDisponibilidad }}</p>
+  <!-- Sección de información de la transacción de la propiedad -->
+  <h4>Información de la transacción de la propiedad</h4>
+  <p>Empresa: {{ vivienda.empresa }}</p>
+  <p>Agente: {{ vivienda.agente }}</p>
+  <p>Propietario: {{ vivienda.propietario }}</p>
+  <p>Clave Catastral: {{ vivienda.claveCastratal }}</p>
+  <p>Lote: {{ vivienda.lote }}</p>
+  <p>Manzana: {{ vivienda.manzana }}</p>
+  <p>Cuenta de Agua: {{ vivienda.cuentaAgua }}</p>
+  <p>Ocultar Dirección: {{ vivienda.ocultarDir }}</p>
+  <p>Acepta Infonavit: {{ vivienda.aceptaInfonavit }}</p>
+  <p>Acepta Fovisste: {{ vivienda.aceptaFovisste }}</p>
+  <p>Autos Estacionados: {{ vivienda.autosEst }}</p>
+  <p>Autos Independientes: {{ vivienda.autosIndep }}</p>
+  <p>Estacionamiento: {{ vivienda.estacionamiento }}</p>
+  <p>Cochera Eléctrica: {{ vivienda.cocheraElectrica }}</p>
+  <p>Patio: {{ vivienda.patio }}</p>
+  <p>Asador: {{ vivienda.asador }}</p>
+  <p>Fuentes: {{ vivienda.fuentes }}</p>
+  <p>Jacuzzi: {{ vivienda.jacuzzi }}</p>
+  <p>Alberca: {{ vivienda.alberca }}</p>
+  <p>Jardín: {{ vivienda.jardin }}</p>
+  <p>Bodega: {{ vivienda.bodega }}</p>
+  <p>Cisterna: {{ vivienda.cisterna }}</p>
+  <p>Tinaco: {{ vivienda.tinaco }}</p>
+  <p>Aire Central: {{ vivienda.acCentral }}</p>
+  <p>Protección de Ventana: {{ vivienda.proteccionVentana }}</p>
+  <p>Persiana Cortina: {{ vivienda.persianaCortina }}</p>
+  <p>Hidroneumático: {{ vivienda.hidroneumatico }}</p>
+  <p>Patio Encementado: {{ vivienda.patioEncementado }}</p>
+  <p>Cocina Integral: {{ vivienda.cocinaIntegral }}</p>
+  <p>Amueblado: {{ vivienda.amueblado }}</p>
+  <p>Piso 1: {{ vivienda.piso1 }}</p>
+  <p>Piso 2: {{ vivienda.piso2 }}</p>
+  <p>Piso 3: {{ vivienda.piso3 }}</p>
+  <p>Alarma: {{ vivienda.alarma }}</p>
+  <p>URL Google Maps: {{ vivienda.urlGoogleMap }}</p>
+  <p>Tipo de Vitropiso: {{ vivienda.vitropiso }}</p>
+  <p>Closet: {{ vivienda.closet }}</p>
+  <p>Barda: {{ vivienda.barda }}</p>
+  <p>Equipada: {{ vivienda.equipada }}</p>
+  <!-- Sección de ubicación -->
+  <h4>Ubicación</h4>
+  <p>País: {{ vivienda.pais }}</p>
+  <p>Estado: {{ vivienda.estado }}</p>
+  <p>Municipio: {{ vivienda.municipio }}</p>
+  <p>Ciudad: {{ vivienda.ciudad }}</p>
+  <p>Colonia: {{ vivienda.colonia }}</p>
+  <p>Código Postal: {{ vivienda.codigoPostal }}</p>
+  <p>Calle: {{ vivienda.calle }}</p>
+  <p>Número Exterior: {{ vivienda.numExterior }}</p>
+  <p>Número Interior: {{ vivienda.numInterior }}</p>
+  <p>Entre calle 1: {{ vivienda.entreCalle1 }}</p>
+  <p>Entre calle 2: {{ vivienda.entreCalle2 }}</p>
+  <p>Nombre Complejo: {{ vivienda.nombreComplejo }}</p>
+</div>
+  </div>
 {% endblock %}

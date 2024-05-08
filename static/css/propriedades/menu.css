@@ -11,11 +11,13 @@
     padding: 10px;
     position: fixed;
     left: 0;
+    margin-top: -25px;
   }
   
   .content {
     flex: 1;
     padding: 20px;
+    text-align: center;
   }
   
   @media (max-width: 768px) {

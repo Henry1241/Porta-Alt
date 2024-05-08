@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 # Create your views here.
+from .forms import *
 
 from inmobiliaria_porta.models import *
 
@@ -30,10 +31,47 @@ class ProprietyInfoView(TemplateView):
     template_name = "PropietyInfoView.html"
     
 
-def edit(request, id):
-    vivienda = vivienda.objects.get(pk=id)
-    return render(request, "edit.html", {"vivienda": vivienda})
+def editar(request, id):
+    viviendas = vivienda.objects.get(pk=id)
+    form = ViviendaForm(instance=viviendas)
+
+    if request.method == 'POST':
+        form = ViviendaForm(request.POST, instance=viviendas)
+        if form.is_valid():
+            form.save()
+            return redirect('propriety.html')
+
+    return render(request, 'proprietyCreate.html', {'form': form})
+
+
+
+def propiedadInfo(request, id):
+    viviendas = vivienda.objects.get(pk=id)
+    return render(request, "ProprietyInfoView.html", {"vivienda": viviendas})
+
+
+
+def agregarViviendas(request):
+    if request.method == 'POST':
+        form = ViviendaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('propriety.html')
+    else:
+        form = ViviendaForm()
+    return render(request, 'proprietyCreate.html', {'form': form})
+
+
 
 def viviendas(request):
     viviendas = vivienda.objects.all()
     return render(request, 'propriety.html', {'viviendas': viviendas})
+
+def eliminarVivienda(request, id):
+    viviendas = vivienda.objects.get(pk=id)
+    
+    if request.method == 'POST':
+        viviendas.delete()
+        return redirect('propriety')
+
+    return render(request, 'eliminarPropriety.html', {'vivienda': viviendas})

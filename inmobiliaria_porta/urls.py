@@ -7,10 +7,12 @@ urlpatterns = [
     path('reset/', ResetView.as_view(), name='reset'),
     path('register/', RegisterView.as_view(), name='register'),
     path('home/', HomeView.as_view(), name='home'),
-    path('propriety/', ProprietyView.as_view(), name='propriety'),
-    path('propriety/create', ProprietyCreateView.as_view(), name= 'proprietyCreate'),
+    path('propriety/', viviendas, name='propriety'),
+    path('proprietyCreate/', agregarViviendas, name= 'proprietyCreate'),
     path('contruction/', ContructionView.as_view(), name= 'contruction'),
-    path('propriety/:id/', ProprietyInfoView.as_view(), name='proprietyInfo'),
-    path("edit/<int:id>", edit, name="edit")
+    path('propriety/<int:id>/', propiedadInfo, name='proprietyInfo'),
+    path("editar/<int:id>", editar, name="edit"),
+    path('eliminarVivienda/<int:id>', eliminarVivienda, name='eliminarVivienda'),
+   
     
 ]
