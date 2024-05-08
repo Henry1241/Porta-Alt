@@ -69,7 +69,7 @@
       {{ form.valorGravamen }}
 
       <label for="valorAvaluo">Valor segun Avaúo:</label>
-      {{ form.valorAvaluo }}
+      {{ form.valorSegunAvaluo }}
 
       <label for="operacion">Operación:</label>
       {{ form.operacion }}
@@ -127,7 +127,9 @@
     <!-- ######### seccion de la disponibilidad y exclusividad ######## -->
     <section>
       <h3>Disponibilidad y exclusividad</h3>
-      {{ form.tipoDisponibilidad }}
+      {{ form.disponibilidad }}
+      <label for="exclusivo">Exclusivo</label>
+      {{ form.exclusivo }}
     </section>
     <!-- ######### seccion de la transaccion de la propiedad ######## -->
     <section>
@@ -187,7 +189,7 @@
       {{ form.jacuzzi }}
 
       <label for="alberca">Alberca:</label>
-      {{ form.fuentes }}
+      {{ form.alberca }}
 
       <label for="jardin">Jardín:</label>
       {{ form.jardin }}

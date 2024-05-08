@@ -8,8 +8,9 @@ body {
   }
   
   .contenido {
+    
     text-align: center;
-    margin-bottom: 140px;
+   
   }
   
   .btn_si {
@@ -18,7 +19,7 @@ body {
     border: none;
     border-radius: 16px;
     color: white;
-    background-color: #1D1B4E;
+    background-color: #093b59;
     cursor: pointer;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   }
@@ -31,5 +32,12 @@ body {
     background-color: #E7E7FA;
     cursor: pointer;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  .txt-eliminar {
+    color: red;
+  }
+
+  .vivienda-eliminar {
+    color: #4caf50;
   }
   

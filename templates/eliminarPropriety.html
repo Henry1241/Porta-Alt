@@ -1,20 +1,20 @@
-{% extends "baseDjango.html" %}
+
 {% load static %}
 <head>
-    {% block head %}
+    
     <title>Eliminar propiedad | Porta</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/propriedades/eliminarPropriety.css' %}">
-    {% endblock %}
+    
 </head>
 <body>
-{% block content %}
+
   <div class='contenido'>
     <form method='POST'>
       {% csrf_token %}
-      <h1>¿Deseas eliminar a {{ Vivienda.titulo }}?</h1>
+      <h1>¿Deseas <span class="txt-eliminar">eliminar</span> a <span class="vivienda-eliminar">{{ vivienda.titulo }}</span>?</h1>
         <button class='btn_cancelar' type='button' onclick='window.history.back()'>Cancelar</button>
       <button class='btn_si' type="submit">Si</button>
     </form>
   </div>
-{% endblock %}
+
 </body>

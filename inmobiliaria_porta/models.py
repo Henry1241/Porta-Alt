@@ -94,7 +94,7 @@ class vivienda(models.Model):
     impuestos = models.CharField(max_length=100)
     otros = models.CharField(max_length=100)
     total = models.CharField(max_length=100)
-    imagen = models.CharField(max_length=200)
+    imagen = models.CharField(max_length=400)
 
     def __str__(self):
         return self.titulo

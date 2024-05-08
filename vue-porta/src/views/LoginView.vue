@@ -69,7 +69,7 @@ const router = useRouter();
 const login = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then(() => {
-      router.push('/home');
+      router.push('/home/');
     })
     .catch((error) => {
       console.log(error.code);

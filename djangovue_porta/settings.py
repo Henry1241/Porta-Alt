@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'inmobiliaria_porta.apps.InmobiliariaPortaConfig'
+    'inmobiliaria_porta'
 ]
 
 MIDDLEWARE = [

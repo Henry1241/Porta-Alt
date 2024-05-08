@@ -25,7 +25,7 @@ class ProprietyCreateView(TemplateView):
     template_name = "proprietyCreate.html"
 
 class ContructionView(TemplateView):
-    template_name = "conotruction.html"
+    template_name = "contruction.html"
 
 class ProprietyInfoView(TemplateView):
     template_name = "PropietyInfoView.html"
@@ -39,7 +39,7 @@ def editar(request, id):
         form = ViviendaForm(request.POST, instance=viviendas)
         if form.is_valid():
             form.save()
-            return redirect('propriety.html')
+            return redirect('/propriety/')
 
     return render(request, 'proprietyCreate.html', {'form': form})
 
@@ -56,7 +56,9 @@ def agregarViviendas(request):
         form = ViviendaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('propriety.html')
+            return redirect('/propriety/')
+        else:
+            print(form.errors)
     else:
         form = ViviendaForm()
     return render(request, 'proprietyCreate.html', {'form': form})
@@ -72,6 +74,6 @@ def eliminarVivienda(request, id):
     
     if request.method == 'POST':
         viviendas.delete()
-        return redirect('propriety')
+        return redirect('/propriety/')
 
     return render(request, 'eliminarPropriety.html', {'vivienda': viviendas})

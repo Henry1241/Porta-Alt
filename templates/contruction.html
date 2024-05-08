@@ -1,6 +1,22 @@
-{% extends "baseVue.html" %}
-
-{% block title %}{% endblock %}
-{% block main %}
-    
+{% extends "baseDjango.html" %}
+{% load static %}
+<head>
+    {% block head %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/propriedades/proprietyCreate.css' %}">
+        <title>Construccion | Porta</title>
+    </head>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+  <div class="content">
+    <div class="Construccion">
+        <h1 class="texto-Construccion">Sitio Web En Construcción</h1>
+        <img src="https://cdn.discordapp.com/attachments/1237729333372518461/1237742343281447015/image.png?ex=663cc0e2&is=663b6f62&hm=ff7303fb58b5eaf26e80cdafe1c6d6bec4e1ad57a5974d914935d70c63ae4b96&"
+            alt="Sitio web en contruccion">
+            <h3>¡Estamos trabajando en este sitio para mejorar tu experiencia!</h3>
+    </div>
+</div>
 {% endblock %}
+</body>

@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    height: 100vh;
+    text-align: center;
+}
+
+.menu {
+    width: 210px;
+    height: 100%;
+    background-color: #093b59;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        width: 100%;
+        position: relative;
+    }
+
+    .content {
+        margin-top: 80px;
+    }
+}
+
+.menu ul {
+    height: 100%;
+}
+
+.menu li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: white;
+    padding: 0px;
+}
+
+.logo {
+    position: fixed;
+    right: 0;
+    margin-right: 10px;
+    top: 10px;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    text-align: left;
+    height: auto;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.menu-items li {
+    height: 100%;
+    display: block;
+    padding: 10px;
+    list-style-type: none;
+    margin: 0;
+    /* Elimina el margen entre los elementos li */
+}
+
+.menu-items :hover {
+    background-color: #093b59;
+    /* Blue */
+}
+
+.menu-items li:hover {
+    color: #4caf50;
+    /* Green */
+}
+
+.texto-bienvenida {
+    color: #093b59;
+}
+
+.nombre-usuario {
+    color: #4caf50;
+}
+.content{
+    margin-top: 200px;
+    margin-left: 100px;
+}

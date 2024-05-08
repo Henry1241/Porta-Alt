@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-class ViviendaForm(forms.Form):
+class ViviendaForm(forms.ModelForm):
     fechaInicio = forms.DateField(label='Fecha Inicio', widget=forms.DateInput(attrs={'type': 'date'}))
     fechaTermino = forms.DateField(label='Fecha Fin', widget=forms.DateInput(attrs={'type': 'date'}))
     titulo = forms.CharField(label='Título', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe el título de la propiedad'}))
@@ -19,7 +19,7 @@ class ViviendaForm(forms.Form):
     construccionN3 = forms.CharField(label='Construcción N3', max_length=100, widget=forms.TextInput(attrs={'placeholder': '8'}))
     gravamen = forms.CharField(label='Gravamen', max_length=100, widget=forms.TextInput(attrs={'placeholder': '8'}))
     valorGravamen = forms.CharField(label='Valor de Gravamen', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe el valor del gravamen'}))
-    valorAvaluo = forms.CharField(label='Valor según Avalúo', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe el valor según avalúo'}))
+    valorSegunAvaluo = forms.CharField(label='Valor según Avalúo', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe el valor según avalúo'}))
     operacion = forms.CharField(label='Operación', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe la operación'}))
     condicionPago = forms.CharField(label='Condición de Pago', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe la condición de pago'}))
     escrituracion = forms.CharField(label='Escrituración', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe la escrituración'}))
@@ -37,8 +37,8 @@ class ViviendaForm(forms.Form):
     ganancia1 = forms.CharField(label='Ganancia1', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe la ganancia de la propiedad'}))
     comision2 = forms.CharField(label='Comisión2', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe la comisión de la propiedad'}))
     ganancia2 = forms.CharField(label='Ganancia2', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe la ganancia de la propiedad'}))
-
-    tipoDisponibilidad = forms.ChoiceField(label='Tipo de Disponibilidad', choices=[('Disponibilidad', 'Disponibilidad'), ('Exclusividad', 'Exclusividad')])
+    exclusivo= forms.CharField(label='exclivo', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Escribe el exclusivo'}))
+    disponibilidad = forms.ChoiceField(label='Tipo de Disponibilidad', choices=[('Disponibilidad', 'Disponibilidad'), ('Exclusividad', 'Exclusividad')])
 
     empresa = forms.CharField(label='Empresa', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe la empresa'}))
     agente = forms.CharField(label='Agente', max_length=50, widget=forms.TextInput(attrs={'placeholder': 'Escribe el agente'}))
@@ -52,7 +52,6 @@ class ViviendaForm(forms.Form):
     aceptaFovisste = forms.BooleanField(label='Acepta Fovisste', required=False)
 
     propietario = forms.CharField(label='Propietario', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe al propietario'}))
-    claveCastratal = forms.CharField(label='ClaveCastratal', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe la clave castratal'}))
     lote = forms.CharField(label='Lote', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe el lote'}))
     manzana = forms.CharField(label='Manzana', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe la manzana'}))
     cuentaAgua = forms.BooleanField(label='Cuenta con Agua', required=False)
@@ -102,21 +101,7 @@ class ViviendaForm(forms.Form):
     impuestos = forms.CharField(label='Impuestos', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe los impuestos'}))
     otros = forms.CharField(label='Otros', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe '}))
     total = forms.CharField(label='Total', max_length=60, widget=forms.TextInput(attrs={'placeholder': 'Escribe el total'}))
-    imagen = forms.ImageField(label='Imagen')
+    imagen = forms.CharField(label='Imagen', max_length=400, widget=forms.TextInput(attrs={'placeholder': 'Ingresa la url de la imagen'}))
     class Meta:
         model = vivienda
-        fields = ['fechaInicio', 'fechaTermino', 'empresa', 'agente', 'ocultarDir', 'exclusivo',
-                'titulo', 'comentario', 'tipoVivienda', 'usoActual', 'usoPermitido', 'condicionFisica',
-                'precioVenta', 'precioRenta', 'precioMinimo', 'precioPromedio', 'precioMaximo',
-                'comision1', 'ganancia1', 'comision2', 'ganancia2', 'disponibilidad', 'claseInmueble',
-                'numeroFrentes', 'medidaTerreno', 'm2Terreno', 'construccionN1', 'construccionN2',
-                'construccionN3', 'gravamen', 'valorGravamen', 'valorSegunAvaluo', 'operacion',
-                'condicionPago', 'aceptaInfonavit', 'aceptaFovisste', 'propietario', 'claveCatastral',
-                'lote', 'manzana', 'cuentaAgua', 'autosEst', 'autosIndep', 'estacionamiento',
-                'cocheraElectrica', 'patio', 'asador', 'fuentes', 'jacuzzi', 'alberca', 'jardin',
-                'bodega', 'cisterna', 'tinaco', 'acCentral', 'proteccionVentana', 'persianaCortina',
-                'hidroneumatico', 'amueblado', 'piso1', 'piso2', 'piso3', 'alarma', 'uriGoogleMaps',
-                'cocinaIntegral', 'vitropiso', 'closet', 'barda', 'patioEncementado', 'equipada',
-                'pais', 'estado', 'municipio', 'ciudad', 'colonia', 'codigoPostal', 'calle',
-                'numExterior', 'numInterior', 'entreCalle1', 'entreCalle2', 'nombreComplejo',
-                'escrituracion', 'avaluo', 'impuestos', 'otros', 'total', 'imagen']
+        fields = ("__all__")

@@ -1,9 +1,10 @@
 .content {
     display: flex;
+    margin-left: 80%;
     justify-content: space-between; /* Cambiado a space-between para distribuir los elementos horizontalmente */
     align-items: center;
     margin-bottom: 20px; /* Añadido margen inferior para separar el contenido de las tarjetas */
-    margin-right: 200px;
+    
   }
   
   select {
@@ -12,6 +13,7 @@
     margin-right: 1rem;
     border: 1px solid #ccc; /* Añadido borde para mejorar la apariencia */
     border-radius: 4px; /* Añadido borde redondeado */
+    display: none;
   }
   
   .button-primary {
